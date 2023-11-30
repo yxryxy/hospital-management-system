@@ -46,7 +46,6 @@ void nurse::fillMap()
         n.add.strToAdd(s7);
         n.idle = (s8 == "Y");
         hospital::nursesList[n.id] = n;
-        n.printDetails();
     }
     f.close();
     return;
@@ -58,9 +57,11 @@ void nurse::saveMap()
     // `le first line conataining column headers:
     f << "nurseId,firstName,lastName,gender,age,mobNumber,address,type,idle\n";
     for (auto i : hospital::nursesList)
+    {
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
-          << "," << i.second.age << "," << i.second.mobNumber << "," << i.second.add.addToStr()
-          << "," << i.second.type << "," << i.second.idle << endl;
+        << "," << i.second.age << "," << i.second.mobNumber << "," << i.second.add.addToStr()
+        << "," << i.second.type << "," << i.second.idle << endl;
+    }
     f.close();
     remove("./data/nurses.csv");
     rename("./data/temp.csv", "./data/nurses.csv");
