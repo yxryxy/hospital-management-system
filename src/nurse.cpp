@@ -61,7 +61,7 @@ void nurse::saveMap()
         
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
         << "," << i.second.age << "," << i.second.mobNumber << "," << i.second.add.addToStr()
-        << "," << i.second.type << "," << i.second.idle << endl;
+        << "," << i.second.type << "," << (i.second.idle ? "Y" : "N") << endl;
     }
     f.close();
     remove("./data/nurses.csv");
