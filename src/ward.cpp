@@ -38,19 +38,19 @@ void ward::fillMap()
         getline(s, s6, ',');
         w.id = strToNum(s1);
         w.remain = strToNum(s2);
-        if(strToNum(s3) != -1)
+        if(atoi(s3.c_str()) != -1)
         {
             w.pGroup.push_back(hospital::patientsList[strToNum(s3)]);
         }
-        if(strToNum(s4) != -1)
+        if(atoi(s4.c_str()) != -1)
         {
             w.pGroup.push_back(hospital::patientsList[strToNum(s4)]);
         }
-        if(strToNum(s5) != -1)
+        if(atoi(s5.c_str()) != -1)
         {
             w.pGroup.push_back(hospital::patientsList[strToNum(s5)]);
         }
-        if(strToNum(s6) != -1)
+        if(atoi(s6.c_str()) != -1)
         {
             w.N = &hospital::nursesList[strToNum(s6)];
         }

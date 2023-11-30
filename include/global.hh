@@ -2,6 +2,7 @@
 #define GLOBAL_HMS
 using namespace std;
 #include <string>
+#include <stdlib.h>
 
 extern int yyyymmdd;
 int power(int n = 1, int exp = 0);
