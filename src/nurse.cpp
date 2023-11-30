@@ -58,6 +58,7 @@ void nurse::saveMap()
     f << "nurseId,firstName,lastName,gender,age,mobNumber,address,type,idle\n";
     for (auto i : hospital::nursesList)
     {
+        
         f << i.second.id << "," << i.second.firstName << "," << i.second.lastName << "," << i.second.gender
         << "," << i.second.age << "," << i.second.mobNumber << "," << i.second.add.addToStr()
         << "," << i.second.type << "," << i.second.idle << endl;
