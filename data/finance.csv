@@ -1,0 +1,3 @@
+billId,buyerName,sellerName,itemName,itemPrice,itemQuantity,money,isProfitable
+1,hospital,Abbott Laboratories Ltd,amoxilin,10,10,100,0
+2,G. Sherry,hospital,amoxilin,10,5,50,0
