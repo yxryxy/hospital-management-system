@@ -355,7 +355,10 @@ void patient::hospitalize()
     if (id == -1)
         return;
     if(hospitalized == 1)
-        cout << "This patient has been hospitalized !" ; return;
+    {
+        cout << "This patient has been hospitalized !" ; 
+        return;
+    }
     ward w;
     w.allocateWard(hospital::patientsList[id]);
     hospital::patientsList[id].hospitalized = 1;
