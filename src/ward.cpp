@@ -74,6 +74,7 @@ void ward::saveMap()
         }
         else if(i.second.remain == 2)
         {
+            cout << "enter" <<endl;
             f << i.second.pGroup[0].id << ",";
             f << "-1,-1,";
             f << i.second.N->id << endl;
@@ -194,22 +195,28 @@ void ward::allocateWard(patient p)
                 //the default number of nurses is sufficient
                 if(j.second.idle == true)
                 {
-                    j.second.idle = false;
-                    i.second.N = &j.second;
+                    hospital::nursesList[j.second.id].idle = false;
+                    hospital::wardsList[i.second.id].N = &hospital::nursesList[j.second.id];
                     break;
                 }
+            }
+            hospital::wardsList[i.second.id].remain = i.second.remain;
+            for(int x = 0; x < i.second.pGroup.size(); x++)
+            {
+                hospital::wardsList[i.second.id].pGroup.push_back(i.second.pGroup[x]);
             }
             cout << p.id << " patient has been hospitalized in " << i.second.id << " ward!" << "\n";
             break;
         }
         else
         {
-            i.second.pGroup.push_back(p);
-            i.second.remain -= 1;
+            hospital::wardsList[i.second.id].pGroup.push_back(p);
+            hospital::wardsList[i.second.id].remain -= 1;
             cout << p.id << " patient has been hospitalized in " << i.second.id << " ward!" << "\n";
             break;
         }
     }
+    return;
 }
 
 void ward::recycleWard(patient p)
@@ -221,25 +228,25 @@ void ward::recycleWard(patient p)
             continue;
         else
         {
-            vector<patient>::iterator it = i.second.pGroup.begin();
-            for(;it!=i.second.pGroup.end();it++)
+            vector<patient>::iterator it = hospital::wardsList[i.second.id].pGroup.begin();
+            for(;it!=hospital::wardsList[i.second.id].pGroup.end();it++)
             {
                 if((*it).id == p.id)
                 {
-                    i.second.pGroup.erase(it);
-                    i.second.remain += 1;
+                    hospital::wardsList[i.second.id].pGroup.erase(it);
+                    hospital::wardsList[i.second.id].remain += 1;
                     isFind = true;
                     break;
                 }
             }
             if(i.second.remain == 3)
             {
-                for(auto i : hospital::nursesList)
+                for(auto j : hospital::nursesList)
                 {
-                    if(i.second.id == N->id)
+                    if(j.second.id == i.second.N->id)
                     {
-                        i.second.idle = true;
-                        N = NULL;
+                        hospital::nursesList[j.second.id].idle = true;
+                        hospital::wardsList[i.second.id].N = NULL;
                         break;
                     }
                 }
@@ -251,6 +258,7 @@ void ward::recycleWard(patient p)
             break;
         }
     }
+    return;
 }
 
 void ward::removeWard()
