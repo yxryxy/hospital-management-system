@@ -235,6 +235,7 @@ void ward::recycleWard(patient p)
                 {
                     hospital::wardsList[i.second.id].pGroup.erase(it);
                     hospital::wardsList[i.second.id].remain += 1;
+                    i.second.remain += 1;
                     isFind = true;
                     break;
                 }

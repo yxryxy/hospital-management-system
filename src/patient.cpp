@@ -361,7 +361,6 @@ void patient::hospitalize()
     }
     ward w;
     w.allocateWard(hospital::patientsList[id]);
-    hospital::wardsList[1].printDetails();
     hospital::patientsList[id].hospitalized = 1;
 
     string s, temp, corrected;
