@@ -1,5 +1,5 @@
 nurseId,firstName,lastName,gender,age,mobNumber,address,type,idle
-1,Sharon,Jenkins,F,24,+91xxxxxxxxxx,ABC-Street` D-Block` E` F``,Travel Nurse,Y
+1,Sharon,Jenkins,F,24,+91xxxxxxxxxx,ABC-Street` D-Block` E` F``,Travel Nurse,N
 2,Ben,Willis,M,28,+91xxxxxxxxxx,ABC-Street` D-Block` E` F``,Compounder,Y
 3,Matt,Stephens,M,23,+91xxxxxxxxxx,ABC-Street` D-Block` E` F``,LPN,Y
 4,Barry,Brickman,M,24,+91xxxxxxxxxx,ABC-Street` D-Block` E` F``,Med-surgical,Y
